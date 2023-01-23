@@ -1,0 +1,39 @@
+
+center h1{
+  font-size: 54px;
+  margin-bottom: 50px;
+}
+.done-tasks{
+  background-color: #82AAE3;
+  display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.doing-tasks{
+  background-color: #82AAE3;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.todo-tasks{
+  background-color: #82AAE3;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.card-header{
+  font-size: 20px;
+}
+
+.taskname{
+  font-size: 24px;
+}
+.date{
+  text-align:start;
+  opacity: 0.7;
+  margin-bottom: 0px;
+}
+
+.bi{
+  cursor: pointer;
+}
