@@ -61,13 +61,7 @@
             aria-labelledby="navbarDropdownMenuAvatar"
           >
             <li>
-              <a class="dropdown-item" href="#">My profile</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Settings</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Logout</a>
+              <a class="dropdown-item" href="<?php BURL ?>/user/logout">Logout</a>
             </li>
           </ul>
         </div>

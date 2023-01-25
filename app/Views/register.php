@@ -75,7 +75,7 @@
 
         <div class="card bg-glass">
           <div class="card-body px-4 py-5 px-md-5">
-          <form  method="POST">
+          <form action="<?php BURL ?>/user/registerUser" method="POST">
               <div class="card-body p-md-5 text-black">
                 <h3 class="mb-5 text-uppercase">User registration form</h3>
                 <p style="color:black"> 
@@ -94,14 +94,14 @@
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
                       <input type="text" name="lastname" class="form-control form-control-lg" />
-                      <label class="form-label" >Last name</label>
+                      <label id="warning" >Last name</label>
                     </div>
                   </div>
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="text" name="username" class="form-control form-control-lg" />
-                  <label class="form-label"  >username</label>
+                  <input type="text" name="username" id="user_form" class="form-control form-control-lg" />
+                  <label class="form-label"  >username</label><span class="warning_username" style="color:red"></span>
                 </div>
 
                 <div class="form-outline mb-4">
@@ -113,7 +113,7 @@
                 <div class="d-flex justify-content-end pt-3">
                   <button type="submit" name="submit" class="btn btn-warning btn-lg ms-2">Register</button>
                 </div>
-                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"
+                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="http://localhost/user/loginuser"
                     class="fw-bold text-body"><u>Login here</u></a></p>
               </div>
             </form>
@@ -124,5 +124,7 @@
   </div>
 </section>
 <!-- Section: Design Block -->
+<script src="/assets/js/script.js"></script>
+
 </body>
 </html>

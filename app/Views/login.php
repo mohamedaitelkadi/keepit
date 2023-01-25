@@ -92,7 +92,7 @@
               <button type="submit" name="login_submit" class="btn btn-primary btn-block mb-4">
                 Log in
               </button>
-              <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"
+              <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="http://localhost/user/registeruser"
                     class="fw-bold text-body"><u>Register here</u></a></p>
               </div>
             </form>

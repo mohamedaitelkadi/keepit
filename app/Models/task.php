@@ -3,8 +3,10 @@
 class task extends user {
     public function getTask(){
         $us = $_SESSION['id_user'];
-        $sql = " SELECT * FROM task AS T JOIN user AS U ON T.id_user = U.id_user WHERE U.id_user = $us ";
+        $sql = " SELECT * FROM task AS T JOIN user AS U ON T.id_user = U.id_user WHERE U.id_user = $us ORDER BY dead_line ASC ";
         $req = mysqli_query($this->connect(),$sql);
+        // var_dump( $req);
+        // die;
         return $req;
     }
     public function addTask($taskname,$dead_line){
@@ -28,7 +30,8 @@ class task extends user {
 
     public function lookFor($search_for)
     {
-        $sql = " SELECT * FROM task WHERE name_task LIKE '%$search_for%'";
+        $us = $_SESSION['id_user'];
+        $sql = " SELECT * FROM task WHERE name_task LIKE '%$search_for%' AND id_user = '$us' ";
         $req = mysqli_query($this->connect(),$sql);
         return $req;
     }

@@ -1,8 +1,12 @@
 <?php
 class TaskController extends task {
+    
     public function index()
     {
-        
+        if(!isset($_SESSION['id_user'])){
+            header("location:http://localhost/user/loginUser");
+        }
+        else{
         if(isset($_POST['update'])){
             $id = $_POST['id_task'];
             $taskname = $_POST['task_name'];
@@ -18,17 +22,21 @@ class TaskController extends task {
        
         view::load('taskboard',$data);
     }
+}
 
 
     public function Add()
     {
         if(isset($_POST['add'])){
+            
             $taskname = $_POST['task_name'];
             $dead_line = $_POST['dead_line'];
-            // $type = $_POST['tasktype'];
-
-            $this->addTask($taskname,$dead_line);
-            header("location:http://localhost/task");
+            if(empty($taskname)&&empty($dead_line)){
+                header("location:http://localhost/task");
+            }else{
+                $this->addTask($taskname,$dead_line);
+                header("location:http://localhost/task");
+            }
         }
         view::load('taskboard');
 
@@ -49,9 +57,16 @@ class TaskController extends task {
                 while($i <= $inputlength){
                     $taskname = $_POST['task_name'.$i];
                     $dead_line = $_POST['dead_line'.$i];
-                    $this->addTask($taskname,$dead_line);
-                    $i++;
+                    if(empty($taskname)&&empty($dead_line)){
+                        header("location:http://localhost/task");
+                    }else{
+                       $this->addTask($taskname,$dead_line);
+                        
+                    }
+
+                    $i++; 
                 }
+                
                 header("location:http://localhost/task");
             }
             $data['datas'] = $this->getTask();

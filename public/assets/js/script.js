@@ -2,6 +2,11 @@ var id_task_put = document.getElementById('edit_task_id');
 var name_task_put = document.getElementById('task_name');
 var deadline_task_put = document.getElementById('dead_line');
 var type_task_put = document.getElementById('task_type');
+var type_date_add = document.getElementById('add_date');
+
+
+
+
 
 var edit = document.getElementsByClassName('bi-pen-fill');
 for(let i = 0;i<edit.length;i++){
@@ -21,7 +26,6 @@ function update(event){
     type_task_put.value = typev.innerHTML;
 
  }
-
 
 
 
@@ -52,10 +56,7 @@ input.addEventListener('input',()=>{
 
 
 
-// for navbar
-const myModal = document.getElementById('myModal')
-const myInput = document.getElementById('myInput')
-
-myModal.addEventListener('shown.bs.modal', () => {
-  myInput.focus()
-})
+// date :::::
+deadline_task_put.min = new Date().toISOString().split("T")[0];
+type_date_add.min = new Date().toISOString().split("T")[0];
+type_date_multi.min = new Date().toISOString().split("T")[0];

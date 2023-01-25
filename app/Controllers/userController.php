@@ -9,9 +9,11 @@ class UserController extends User
             $lastname = $_POST['lastname'];
             $username = $_POST['username'];
             $password = $_POST['password'];
+
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             
-            $result = $this->register($firstname,$lastname,$username,$password);
-            if($result == 1){
+            $result = $this->register($firstname,$lastname,$username,$hashed_password);
+            if($result){
                 header("location:http://localhost/user/loginUser");
             }
             else{
@@ -29,19 +31,26 @@ class UserController extends User
                     
                     
                     $username = $_POST['username'];
-                    $password = $_POST['password'];
-                   
-        
-                    $result = $this->user_login($username, $password);
-                    if ($result) {
+                    $password = $_POST['password'];      
+                    $result = $this->user_login($username,$password);
+                    if($result){
+                        if (password_verify($password,$result['password'])){
                         $_SESSION['id_user']=$result['id_user'];
                         $_SESSION['first_name']=$result['first_name'];
                         $_SESSION['last_name']=$result['last_name'];
                         header("location:http://localhost/task");
                     }
+                    }
+                    
                 }
 
         view::load('login');
+    }
+
+    public function logout(){
+        if(session_destroy()){
+            header("location:http://localhost/user/loginUser");
+        }
     }
     
 }
