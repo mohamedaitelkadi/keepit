@@ -12,14 +12,12 @@ class TaskController extends task {
             $taskname = $_POST['task_name'];
             $dead_line = $_POST['dead_line'];
             $type = $_POST['tasktype'];
-
             $this->editTask($taskname,$dead_line,$type,$id);
         }
         $data['datas'] = $this->getTask();
         $data['todo_stats']=$this->stats_todo();
         $data['doing_stats']=$this->stats_doing();
         $data['done_stats']=$this->stats_done();
-       
         view::load('taskboard',$data);
     }
 }
@@ -28,7 +26,6 @@ class TaskController extends task {
     public function Add()
     {
         if(isset($_POST['add'])){
-            
             $taskname = $_POST['task_name'];
             $dead_line = $_POST['dead_line'];
             if(empty($taskname)&&empty($dead_line)){
@@ -39,8 +36,8 @@ class TaskController extends task {
             }
         }
         view::load('taskboard');
-
     }
+
     public function Delete($id)
     {
         $this->remove($id);
@@ -50,7 +47,6 @@ class TaskController extends task {
 
 
     public function multiple(){
-
             if(isset($_POST['addmulti'])){
                 $inputlength = $_POST['num_task'];
                 $i = 1;
@@ -60,18 +56,14 @@ class TaskController extends task {
                     if(empty($taskname)&&empty($dead_line)){
                         header("location:http://localhost/task");
                     }else{
-                       $this->addTask($taskname,$dead_line);
-                        
+                       $this->addTask($taskname,$dead_line);   
                     }
-
                     $i++; 
                 }
-                
                 header("location:http://localhost/task");
             }
             $data['datas'] = $this->getTask();
             view::load('taskboard',$data);
-    
         } 
 
         public function search()
@@ -84,7 +76,5 @@ class TaskController extends task {
                 $data['done_stats']=$this->stats_done();
             }
             view::load('taskboard',$data);
-        }
-
-        
+        } 
 }

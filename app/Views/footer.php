@@ -1,4 +1,4 @@
-<footer style="margin-top:70px" class="bg-dark text-center text-white">
+<footer style="margin-top:184px; background-color:#3C6255" class="text-center text-white">
   <!-- Grid container -->
   <div class="container p-4 pb-0">
     <!-- Section: Social media -->

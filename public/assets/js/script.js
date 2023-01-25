@@ -3,7 +3,7 @@ var name_task_put = document.getElementById('task_name');
 var deadline_task_put = document.getElementById('dead_line');
 var type_task_put = document.getElementById('task_type');
 var type_date_add = document.getElementById('add_date');
-
+var type_date_multi = document.querySelector('.form-control');
 
 
 
@@ -12,7 +12,9 @@ var edit = document.getElementsByClassName('bi-pen-fill');
 for(let i = 0;i<edit.length;i++){
     edit[i].addEventListener("click",update)
 }
-function update(event){
+
+function update(event)
+{
     let idv = event.target.parentElement.parentElement.querySelector('.id_task') ;
     id_task_put.value = idv.value;
 
@@ -24,13 +26,12 @@ function update(event){
 
     let typev = event.target.parentElement.parentElement.querySelector('.type_task') ;
     type_task_put.value = typev.innerHTML;
-
  }
-
 
 
 let input = document.querySelector('.num_task');
 let continv = document.querySelector('.taskplus');
+
 input.addEventListener('input',()=>{
     continv.innerHTML= "";
     let number =  input.value;
@@ -53,8 +54,6 @@ input.addEventListener('input',()=>{
         }
     }
 })
-
-
 
 // date :::::
 deadline_task_put.min = new Date().toISOString().split("T")[0];

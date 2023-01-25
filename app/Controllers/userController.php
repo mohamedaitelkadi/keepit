@@ -9,9 +9,7 @@ class UserController extends User
             $lastname = $_POST['lastname'];
             $username = $_POST['username'];
             $password = $_POST['password'];
-
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-            
             $result = $this->register($firstname,$lastname,$username,$hashed_password);
             if($result){
                 header("location:http://localhost/user/loginUser");
@@ -19,7 +17,6 @@ class UserController extends User
             else{
                 $data['msg']="username already exist";
             }
-
         }
         
         view::load('register',$data);
@@ -28,8 +25,6 @@ class UserController extends User
     public function loginUser()
     {
         if (isset($_POST["login_submit"])) {
-                    
-                    
                     $username = $_POST['username'];
                     $password = $_POST['password'];      
                     $result = $this->user_login($username,$password);
@@ -41,7 +36,6 @@ class UserController extends User
                         header("location:http://localhost/task");
                     }
                     }
-                    
                 }
 
         view::load('login');
